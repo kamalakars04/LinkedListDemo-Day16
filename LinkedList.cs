@@ -39,13 +39,51 @@
             {
                 this.head = new Node<T>(data);
                 tempLastNode = head;
+                Console.WriteLine(data+" Added successfully");
                 return;
             }
 
             // If list is not empty then update the first term everytime
             Node<T> tempNode = this.head;
             this.head = new Node<T>(data);
+            Console.WriteLine(data + " Added successfully");
             head.next = tempNode;
+        }
+
+        /// <summary>
+        /// UC 4 Inserts in between.
+        /// </summary>
+        /// <param name="dataOne">The data one.</param>
+        /// <param name="dataTwo">The data two.</param>
+        /// <param name="data">The data.</param>
+        public void InsertBetween(T dataOne,T dataTwo,T data)
+        {
+            // If the linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("The specified order of elements not found");
+                return;
+            }
+
+            // Search for the first element of user entry
+            Node<T> tempNode = this.head;
+            while(!(tempNode.data.Equals(dataOne) && tempNode.next.data.Equals(dataTwo) && tempNode.next != null))
+            {
+                tempNode = tempNode.next;
+            }
+            // If the elements entered by user are found
+            if (tempNode.next == null)
+                return;
+
+            // If the elements entered by user are found
+            // Store the node of second entry in temperory Node
+            Node<T> tempNextNode = tempNode.next;
+
+            // Fill the next of first node with new node 
+            tempNode.next = new Node<T>(data);
+
+            // Fill the next of new node with second entry node
+            tempNode.next.next = tempNextNode;
         }
 
         /// <summary>
@@ -62,7 +100,7 @@
 
             // If linked list has elements then iterate till the next of a node is null
             Node<T> tempNode = this.head;
-            Console.WriteLine("The elements are : ");
+            Console.WriteLine("\nThe elements are : ");
             while(tempNode != null)
             {
                 Console.Write(tempNode.data+"\t");
