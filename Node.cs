@@ -1,4 +1,10 @@
-﻿namespace LinkedListDemo
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Node.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator Name="Kamalakar Rao Singaraju"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace LinkedListDemo
 {
     using System;
     using System.Collections.Generic;
