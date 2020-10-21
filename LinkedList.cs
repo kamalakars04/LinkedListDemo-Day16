@@ -29,6 +29,26 @@
         }
 
         /// <summary>
+        /// Inserts at first.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        public void InsertAtFirst(T data)
+        {
+            // If the linked list is empty
+            if (this.head == null)
+            {
+                this.head = new Node<T>(data);
+                tempLastNode = head;
+                return;
+            }
+
+            // If list is not empty then update the first term everytime
+            Node<T> tempNode = this.head;
+            this.head = new Node<T>(data);
+            head.next = tempNode;
+        }
+
+        /// <summary>
         /// Displays the linked list.
         /// </summary>
         public void DisplayLinkedList()
