@@ -1,4 +1,10 @@
-﻿namespace LinkedListDemo
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="LinkedList.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator Name="Kamalakar Rao Singaraju"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace LinkedListDemo
 {
     using System;
     using System.Collections.Generic;
@@ -84,6 +90,19 @@
 
             // Fill the next of new node with second entry node
             tempNode.next.next = tempNextNode;
+        }
+
+        public void DeleteAtFirst()
+        {
+            // If linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("No elements in linked list");
+                return;
+            }
+
+            // If linked list is not empty
+            this.head = head.next;
         }
 
         /// <summary>

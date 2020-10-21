@@ -1,4 +1,10 @@
-﻿namespace LinkedListDemo
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator Name="Kamalakar Rao Singaraju"/>
+// --------------------------------------------------------------------------------------------------------------------
+namespace LinkedListDemo
 {
     using System;
 
@@ -31,6 +37,9 @@
             linkedListTwo.InsertAtLast(56);
             linkedListTwo.InsertAtLast(70);
             linkedListTwo.InsertBetween(56,70,30);
+
+            // UC 5 Delete at beginning
+            linkedListTwo.DeleteAtFirst();
 
             // Displaying linked list
             linkedList.DisplayLinkedList();
