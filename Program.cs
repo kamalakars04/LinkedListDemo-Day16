@@ -1,9 +1,13 @@
-﻿using System;
-
-namespace LinkedListDemo
+﻿namespace LinkedListDemo
 {
+    using System;
+
     class Program
     {
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
             Console.WriteLine("Linked List!");
@@ -11,7 +15,7 @@ namespace LinkedListDemo
             // Initialising a linked list
             LinkedList<int> linkedList = new LinkedList<int>();
 
-            // UC 1 Adding elements to linkedlist
+            // UC 1 and UC 3 Adding elements to linkedlist
             linkedList.InsertAtLast(56);
             linkedList.InsertAtLast(30);
             linkedList.InsertAtLast(70);

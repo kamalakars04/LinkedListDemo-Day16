@@ -10,7 +10,7 @@
         private Node<T> tempLastNode;
 
         /// <summary>
-        /// UC 1 Inserts at last.
+        /// UC 1 and UC 3 Inserts at last.
         /// </summary>
         /// <param name="data">The data.</param>
         public void InsertAtLast(T data) 
@@ -29,7 +29,7 @@
         }
 
         /// <summary>
-        /// Inserts at first.
+        /// UC 2 Inserts at first.
         /// </summary>
         /// <param name="data">The data.</param>
         public void InsertAtFirst(T data)
