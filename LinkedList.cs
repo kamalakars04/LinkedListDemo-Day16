@@ -92,7 +92,10 @@ namespace LinkedListDemo
             tempNode.next.next = tempNextNode;
         }
 
-        public void DeleteAtFirst()
+        /// <summary>
+        /// UC 5 Pops the first element.
+        /// </summary>
+        public void Pop()
         {
             // If linked list is empty
             if (this.head == null)
@@ -103,6 +106,37 @@ namespace LinkedListDemo
 
             // If linked list is not empty
             this.head = head.next;
+        }
+
+        /// <summary>
+        /// UC 6 Pops the last.
+        /// </summary>
+        public void PopLast()
+        {
+            // If linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("No elements in linked list");
+                return;
+            }
+
+            // If it has only one element
+            if (head.next == null)
+            {
+                head = null;
+                return;
+            }
+
+            // If the linked list is not empty
+            Node<T> tempNode = this.head;
+
+            // if next element is not equal to null
+            while (tempNode.next.next != null)
+                tempNode = tempNode.next;
+
+            // Make the next of last but one element as null
+            tempNode.next = null;
+
         }
 
         /// <summary>
