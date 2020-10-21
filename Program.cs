@@ -19,15 +19,23 @@
             linkedList.InsertAtLast(56);
             linkedList.InsertAtLast(30);
             linkedList.InsertAtLast(70);
-
+            
+            // UC 2 Adding elements at first
             LinkedList<int> linkedListOne = new LinkedList<int>();
-            //UC 2 Adding elements at first
             linkedListOne.InsertAtFirst(70);
             linkedListOne.InsertAtFirst(30);
             linkedListOne.InsertAtFirst(56);
 
+            // UC 4 Adding elements in between two given values
+            LinkedList<int> linkedListTwo = new LinkedList<int>();
+            linkedListTwo.InsertAtLast(56);
+            linkedListTwo.InsertAtLast(70);
+            linkedListTwo.InsertBetween(56,70,30);
+
             // Displaying linked list
+            linkedList.DisplayLinkedList();
             linkedListOne.DisplayLinkedList();
+            linkedListTwo.DisplayLinkedList();
         }
     }
 }
