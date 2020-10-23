@@ -27,6 +27,7 @@ namespace LinkedListDemo
             linkedList.InsertAtLast(70);
             Console.WriteLine("Added elements to last");
             
+            
             // UC 2 Adding elements at first
             LinkedList<int> linkedListOne = new LinkedList<int>();
             linkedListOne.InsertAtFirst(70);
@@ -51,6 +52,9 @@ namespace LinkedListDemo
             linkedListOne.DisplayLinkedList();
             Console.Write("\n\nPopped first element");
             linkedListTwo.DisplayLinkedList();
+
+            // UC 7 Ability to search element
+            linkedList.SearchElement(56);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace LinkedListDemo
     using System.Collections.Generic;
     using System.Text;
 
-    class LinkedList<T>
+    public class LinkedList<T>
     {
         private Node<T> head;
         private Node<T> tempLastNode;
@@ -134,9 +134,41 @@ namespace LinkedListDemo
             while (tempNode.next.next != null)
                 tempNode = tempNode.next;
 
+            // Update the last node
+            tempLastNode = tempNode;
+
             // Make the next of last but one element as null
             tempNode.next = null;
+        }
 
+        /// <summary>
+        /// UC 7 Searches the element.
+        /// </summary>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
+        public int SearchElement(T data)
+        {
+            int elementNum = 1;
+            Node<T> tempNode = this.head;
+
+            // If the data of temp node is not equal to zero
+            while (!tempNode.data.Equals(data))
+            {
+                if (tempNode.next != null)
+                {
+                    elementNum++;
+                    tempNode = tempNode.next;
+                }
+                else
+                {
+                    Console.WriteLine("Element not found");
+                    return 0;
+                }
+            }
+
+            // Check the element number and return it
+            Console.WriteLine($"Element found at {elementNum}");
+            return elementNum;
         }
 
         /// <summary>
