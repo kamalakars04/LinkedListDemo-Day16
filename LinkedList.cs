@@ -13,7 +13,6 @@ namespace LinkedListDemo
     public class LinkedList<T>
     {
         private Node<T> head;
-        private Node<T> tempLastNode;
 
         /// <summary>
         /// UC 1 and UC 3 Inserts at last.
@@ -25,13 +24,24 @@ namespace LinkedListDemo
             if(this.head == null)
             {
                 this.head = new Node<T>(data);
-                tempLastNode = head;
                 return;
             }
 
             // If the head is already full
-            tempLastNode.next = new Node<T>(data);
-            tempLastNode = tempLastNode.next;
+            Node<T> tempNode = GetLastNode();
+            tempNode.next = new Node<T>(data);
+        }
+
+        /// <summary>
+        /// Gets the last node.
+        /// </summary>
+        /// <returns></returns>
+        public Node<T> GetLastNode()
+        {
+            Node<T> tempNode = this.head;
+            while (tempNode.next != null)
+                tempNode = tempNode.next;
+            return tempNode;
         }
 
         /// <summary>
@@ -44,7 +54,6 @@ namespace LinkedListDemo
             if (this.head == null)
             {
                 this.head = new Node<T>(data);
-                tempLastNode = head;
                 Console.WriteLine(data+" Added successfully");
                 return;
             }
@@ -139,9 +148,6 @@ namespace LinkedListDemo
             while (tempNode.next.next != null)
                 tempNode = tempNode.next;
 
-            // Update the last node
-            tempLastNode = tempNode;
-
             // Make the next of last but one element as null
             tempNode.next = null;
         }
@@ -220,6 +226,71 @@ namespace LinkedListDemo
                 InsertAtLast(newData);
 
             Console.WriteLine("\nElement inserted");
+        }
+
+        public void PopElement(T data)
+        {
+            // If linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("\nNo elements in linked list");
+                return;
+            }
+
+            // If the searched element is first element
+            if (head.data.Equals(data))
+                this.head = head.next;
+
+            // If the list has only one element
+            else if (head.next == null)
+            {
+                Console.WriteLine("Element not found");
+                return;
+            }
+            Node<T> tempNode = this.head;
+
+            // If data in tempNode is not equal to user entry then go to next node
+            while(!tempNode.next.data.Equals(data))
+            {
+                if (tempNode.next != null)
+                    tempNode = tempNode.next;
+                else
+                {
+                    Console.WriteLine("Element not found");
+                    return;
+                }
+            }
+
+            // If given element is last element
+            if (tempNode.next.next == null)
+                PopLast();
+
+            // Delete the element in between list
+            tempNode.next = tempNode.next.next;
+        }
+
+        /// <summary>
+        /// UC 9 To get the size of linked list
+        /// </summary>
+        /// <returns>size</returns>
+        public int ImplementSize()
+        {
+            int count = 1;
+
+            // If linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("\nNo elements in linked list");
+                return 0;
+            }
+            Node<T> tempNode = this.head;
+            while (tempNode.next != null)
+            {
+                count++;
+                tempNode = tempNode.next;
+            }
+            Console.WriteLine("\n The number of elements in linked list are : {0}",count);
+            return count;
         }
 
         /// <summary>
