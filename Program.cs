@@ -55,6 +55,10 @@ namespace LinkedListDemo
 
             // UC 7 Ability to search element
             linkedList.SearchElement(56);
+
+            // UC 8 Ability to search element
+            linkedList.InsertAfterElement(30, 40);
+            linkedList.DisplayLinkedList();
         }
     }
 }

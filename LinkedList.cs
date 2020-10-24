@@ -65,7 +65,7 @@ namespace LinkedListDemo
         public void InsertBetween(T dataOne,T dataTwo,T data)
         {
             // If the linked list is empty
-            if (this.head == null)
+            if (this.head == null || head.next == null)
             {
                 Console.WriteLine("The specified order of elements not found");
                 return;
@@ -73,13 +73,18 @@ namespace LinkedListDemo
 
             // Search for the first element of user entry
             Node<T> tempNode = this.head;
-            while(!(tempNode.data.Equals(dataOne) && tempNode.next.data.Equals(dataTwo) && tempNode.next != null))
+            while(!(tempNode.data.Equals(dataOne) && tempNode.next.data.Equals(dataTwo)))
             {
+                // Iterate to next node
                 tempNode = tempNode.next;
+
+                // If we have reached last elemnt
+                if (tempNode.next == null)
+                {
+                    Console.WriteLine("The specified order of elements not found");
+                    return;
+                }
             }
-            // If the elements entered by user are found
-            if (tempNode.next == null)
-                return;
 
             // If the elements entered by user are found
             // Store the node of second entry in temperory Node
@@ -100,7 +105,7 @@ namespace LinkedListDemo
             // If linked list is empty
             if (this.head == null)
             {
-                Console.WriteLine("No elements in linked list");
+                Console.WriteLine("\nNo elements in linked list");
                 return;
             }
 
@@ -116,7 +121,7 @@ namespace LinkedListDemo
             // If linked list is empty
             if (this.head == null)
             {
-                Console.WriteLine("No elements in linked list");
+                Console.WriteLine("\nNo elements in linked list");
                 return;
             }
 
@@ -148,6 +153,13 @@ namespace LinkedListDemo
         /// <returns></returns>
         public int SearchElement(T data)
         {
+            // If linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("\nNo elements in linked list");
+                return 0;
+            }
+
             int elementNum = 1;
             Node<T> tempNode = this.head;
 
@@ -167,8 +179,47 @@ namespace LinkedListDemo
             }
 
             // Check the element number and return it
-            Console.WriteLine($"Element found at {elementNum}");
+            Console.WriteLine($"\nElement found at {elementNum}");
             return elementNum;
+        }
+
+        /// <summary>
+        /// UC 8 Inserts new element after the given element.
+        /// </summary>
+        /// <param name="afterData">The after data.</param>
+        /// <param name="newData">The new data.</param>
+        public void InsertAfterElement(T afterData, T newData)
+        {
+            // If linked list is empty
+            if (this.head == null)
+            {
+                Console.WriteLine("\nNo elements in linked list");
+                return;
+            }
+
+            // If head is not null
+            Node<T> tempNode = this.head;
+            while(!tempNode.data.Equals(afterData))
+            {
+                if (tempNode.next != null)
+                    tempNode = tempNode.next;
+                else
+                {
+                    Console.WriteLine("\nElement not found");
+                    return;
+                }
+            }
+            Node<T> newElement = new Node<T>(newData);
+
+            // If element is to be inserted in between
+            if (tempNode.next != null)
+                InsertBetween(tempNode.data, tempNode.next.data, newData);
+
+            // If the element needs to be inserted at last
+            else
+                InsertAtLast(newData);
+
+            Console.WriteLine("\nElement inserted");
         }
 
         /// <summary>
