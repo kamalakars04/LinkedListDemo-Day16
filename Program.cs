@@ -59,6 +59,10 @@ namespace LinkedListDemo
             // UC 8 Ability to search element
             linkedList.InsertAfterElement(30, 40);
             linkedList.DisplayLinkedList();
+
+            // UC 9 delete element and Implement size
+            linkedList.PopElement(40);
+            linkedList.DisplayLinkedList();
         }
     }
 }
