@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedListDemo
 {
-    class UnsortedLinkedList<T> : LinkedList<T> where T : IComparable
+    public class UnsortedLinkedList<T> : LinkedList<T> where T : IComparable
     {
         /// <summary>
         /// UC 1 and UC 3 Inserts at last.
