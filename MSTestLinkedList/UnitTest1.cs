@@ -5,11 +5,11 @@ namespace MSTestLinkedList
     [TestClass]
     public class UnitTest1
     {
-        LinkedList<int> linkedListOne;
+        UnsortedLinkedList<int> linkedListOne;
         [TestInitialize]
         public void setup()
         {
-            linkedListOne = new LinkedList<int>();
+            linkedListOne = new UnsortedLinkedList<int>();
             linkedListOne.InsertAtFirst(70);
             linkedListOne.InsertAtFirst(30);
             linkedListOne.InsertAtFirst(56);
